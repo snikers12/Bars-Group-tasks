@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Universal search</title>
+	<style type="text/css">
+	.search{
+		width: 250px;
+		margin: auto;
+	}
+	</style>
+	<script type="text/javascript">
+		function isChecked(){
+	  		var inp = document.getElementsByName("system");
+	  		var error = ""
+	  		if (!(inp[0].checked) && !(inp[1].checked)) {
+            	error += "Hey, You foget to choose search system. ";
+	  		}
+	  		if (document.getElementById('searchObject').value=='') {
+		        error += "Write anything in form, bro.";
+	    	}
+	  		else if (inp[1].checked) {
+	  			searchObject.name = "text";
+	  			document.forms[0].action = "http://yandex.ru/yandsearch";
+	  		}
+	  		else if (inp[0].checked){
+	  			searchObject.name = "q";
+	  			document.forms[0].action = "http://google.ru/search";
+	  		};
+	    	if (error != '') {
+	    		window.alert(error);
+	    	};
+		}
+	</script>
+</head>
+<body>
+	<h2 align="center">Hello, my dear Friend! Let's find information, that You need.</h2>
+	<div class="search">
+		<form method="get" action="" target="">
+			<input id="searchObject" type="search" name="" placeholder="Write here"> 
+			<input type="submit" value="Search" onclick="isChecked()">
+			<h4 align="center">Choose search system</h4>
+			<p><input type="radio" name="system" value="google">Google</p>
+		   	<p><input type="radio" name="system" value="yandex">Yandex</p>
+		</form>
+	</div>
+</body>
+</html>
